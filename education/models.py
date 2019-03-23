@@ -56,3 +56,7 @@ class Attendance(models.Model):
     instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     date = models.DateField()
 
+
+class Teams(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    user = models.ForeignKey(Student, on_delete=models.CASCADE)
