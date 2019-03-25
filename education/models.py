@@ -1,11 +1,10 @@
 from django.db import models
-from custom_user.models import User, Teacher, Student
 # Create your models here.
 
 
 class Courses(models.Model):
     name = models.CharField(max_length=100, default="course")
-    instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    instructor = models.ForeignKey('custom_user.Teacher', on_delete=models.CASCADE)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     description = models.TextField()
@@ -32,7 +31,7 @@ class Files(models.Model):
     is_material = models.BooleanField(default=False)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('custom_user.User', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -40,8 +39,8 @@ class Files(models.Model):
 
 class Assignments(models.Model):
     lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
-    user = models.ForeignKey(Student, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    user = models.ForeignKey('custom_user.Student', on_delete=models.CASCADE)
+    instructor = models.ForeignKey('custom_user.Teacher', on_delete=models.CASCADE)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
     grade = models.IntegerField(default=0)
     file = models.ForeignKey(Files, on_delete=models.CASCADE)
@@ -52,13 +51,9 @@ class Assignments(models.Model):
 
 
 class Attendance(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    student = models.ForeignKey('custom_user.Student', on_delete=models.CASCADE)
+    instructor = models.ForeignKey('custom_user.Teacher', on_delete=models.CASCADE)
     date = models.DateField()
-#   course
-#   lesson
-
-
-class Teams(models.Model):
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
-    user = models.ForeignKey(Student, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
+

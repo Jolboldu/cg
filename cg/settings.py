@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'custom_user',
     'education',
+    'encouragement',
     'django_extensions',
     'graphene_django',
 

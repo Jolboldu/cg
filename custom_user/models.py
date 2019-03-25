@@ -1,3 +1,4 @@
+from education.models import Courses
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
@@ -20,10 +21,8 @@ class Student(models.Model):
     school = models.CharField(max_length=100)
     parent_first_name = models.CharField(max_length=100)
     parent_last_name = models.CharField(max_length=100)
-    level = models.IntegerField(default=1)
-    rank = models.IntegerField(default=1)
-    points = models.IntegerField(default=1)
-    is_first = models.BooleanField(default=True)
+    efficiency = models.IntegerField(default=0)
+    is_valid = models.BooleanField(default=True)
 
     def __str__(self):
         return self.user.last_name
