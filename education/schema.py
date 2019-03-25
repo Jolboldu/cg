@@ -1,6 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
-from .models import Courses, Lessons, Files, Assignments, Attendance, Teams
+from .models import Courses, Lessons, Files, Assignments, Attendance
 
 
 class CourseType(DjangoObjectType):
@@ -28,18 +28,12 @@ class AttendanceType(DjangoObjectType):
         model = Attendance
 
 
-class TeamType(DjangoObjectType):
-    class Meta:
-        model = Teams
-
-
 class Query(graphene.ObjectType):
     courses = graphene.List(CourseType)
     files = graphene.List(FileType)
     lessons = graphene.List(LessonType)
     assignments = graphene.List(AssignmentType)
     attendance = graphene.List(AttendanceType)
-    teams = graphene.List(TeamType)
 
     def resolve_courses(self, info):
         return Courses.objects.all()
@@ -56,5 +50,3 @@ class Query(graphene.ObjectType):
     def resolve_attendance(self, info):
         return Attendance.objects.all()
 
-    def resolve_teams(self, info):
-        return Teams.objects.all()

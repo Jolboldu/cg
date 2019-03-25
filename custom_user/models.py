@@ -21,7 +21,7 @@ class Student(models.Model):
     school = models.CharField(max_length=100)
     parent_first_name = models.CharField(max_length=100)
     parent_last_name = models.CharField(max_length=100)
-    efficiency = models.IntegerField(default=0)
+    efficiency = models.IntegerField(default=100)
     is_valid = models.BooleanField(default=True)
 
     def __str__(self):

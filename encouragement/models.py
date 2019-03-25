@@ -11,5 +11,5 @@ class Medal(models.Model):
 
 
 class Tree(models.Model):
-    prev = models.ForeignKey(Medal, on_delete=models.CASCADE)
-    next = models.ForeignKey(Medal, on_delete=models.CASCADE)
+    _from = models.ForeignKey(Medal, related_name='medal_from', on_delete=models.CASCADE)
+    _to = models.ForeignKey(Medal, related_name='medal_to', on_delete=models.CASCADE)
