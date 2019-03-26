@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'custom_user',
     'education',
     'encouragement',
+    'squad',
     'django_extensions',
     'graphene_django',
 
