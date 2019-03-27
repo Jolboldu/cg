@@ -4,8 +4,12 @@ from custom_user.models import Teacher, Student
 
 
 class Teams(models.Model):
+    name = models.CharField(max_length=100, default='name')
     instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     date = models.DateField()
+
+    def __str__(self):
+        return self.name
 
 
 class Participants(models.Model):

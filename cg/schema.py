@@ -2,9 +2,10 @@ import graphene
 import graphql_jwt
 import custom_user.schema
 import education.schema
+import encouragement.schema
 
 
-class Query(custom_user.schema.Query, education.schema.Query, graphene.ObjectType):
+class Query(custom_user.schema.Query, education.schema.Query, encouragement.schema.Query, graphene.ObjectType):
     pass
 
 
@@ -14,4 +15,4 @@ class Mutation(graphene.ObjectType):
     refresh_token = graphql_jwt.Refresh.Field()
 
 
-schema = graphene.Schema(query=Query,mutation=Mutation)
+schema = graphene.Schema(query=Query, mutation=Mutation)
