@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c0fef04-2d0e-4f0f-9dbb-ddb90e4e48a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/squad/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cg/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/cg/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/education/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/education/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/education/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/education/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/encouragement/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/encouragement/schema.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/education/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
+            <state relative-caret-position="201">
               <caret line="33" column="8" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="8" />
             </state>
           </provider>
@@ -30,8 +24,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/education/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="595">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/squad/schema.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -358,16 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/squad/schema.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cg/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -388,13 +384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/education/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/encouragement/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
@@ -405,10 +394,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/squad/schema.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/education/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/education/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="595">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

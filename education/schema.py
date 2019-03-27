@@ -33,14 +33,17 @@ class Query(graphene.ObjectType):
     courses = graphene.List(CourseType)
     files = graphene.List(FileType, user=graphene.Int(), is_material=graphene.Boolean(),
                           course=graphene.Int(), lesson=graphene.Int(), file=graphene.Int())
-    lessons = graphene.List(LessonType)
-    assignments = graphene.List(AssignmentType)
-    attendance = graphene.List(AttendanceType)
+    lessons = graphene.List(LessonType, lesson=graphene.Int())
+    assignments = graphene.List(AssignmentType, course=graphene.Int(), lesson=graphene.Int(),
+                                user=graphene.Int())
+    attendance = graphene.List(AttendanceType, user=graphene.Int())
 
+# query for courses
     def resolve_courses(self, info):
         return Courses.objects.all()
 
-    def resolve_files(self, info, user=None, is_material=bool, course=None, lesson=int, file=None, **kwargs):
+# query for files
+    def resolve_files(self, info, user=None, is_material=bool, course=None, lesson=None, file=None, **kwargs):
         #пока что хз как исправить is_material
         # if not is_material:
         #     filter=(
@@ -65,6 +68,11 @@ class Query(graphene.ObjectType):
                 Q(course__id__icontains=course)
             )
             return Files.objects.filter(filter)
+        if lesson:
+            filter = (
+                Q(lesson__id__icontains=lesson)
+            )
+            return Files.objects.filter(filter)
         if file:
             filter = (
                 Q(id__icontains=file)
@@ -73,12 +81,42 @@ class Query(graphene.ObjectType):
 
         return Files.objects.all()
 
-    def resolve_lessons(self, info):
+# query for lessons
+    def resolve_lessons(self, info, lesson=None, **kwargs):
+        if lesson:
+            filter = (
+                Q(lesson__id__icontains=lesson)
+            )
+            return Lessons.objects.filter(filter)
         return Lessons.objects.all()
 
-    def resolve_assignments(self, info):
+# query for assignments
+    def resolve_assignments(self, info, user=None, course=None, lesson=None, **kwargs):
+        if user:
+            filter = (
+                Q(user__id__icontains=user)
+            )
+            return Assignments.objects.filter(filter)
+
+        if course:
+            filter = (
+                Q(course__id__icontains=course)
+            )
+            return Assignments.objects.filter(filter)
+        if lesson:
+            filter = (
+                Q(lesson__id__icontains=lesson)
+            )
+            return Assignments.objects.filter(filter)
+
         return Assignments.objects.all()
 
-    def resolve_attendance(self, info):
+# query for attendance
+    def resolve_attendance(self, info, user=None, **kwargs):
+        if user:
+            filter = (
+                Q(user__id__icontains=user)
+            )
+            return Attendance.objects.filter(filter)
         return Attendance.objects.all()
 
