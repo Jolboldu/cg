@@ -43,6 +43,7 @@ class Assignments(models.Model):
     instructor = models.ForeignKey('custom_user.Teacher', on_delete=models.CASCADE)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
     grade = models.IntegerField(default=0)
+    max_grade = models.IntegerField(default=10)
     file = models.ForeignKey(Files, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
     deadline = models.DateTimeField()
@@ -56,4 +57,4 @@ class Attendance(models.Model):
     date = models.DateField()
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
-
+    attend = models.BooleanField(default=False);

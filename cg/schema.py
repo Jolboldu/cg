@@ -3,9 +3,11 @@ import graphql_jwt
 import custom_user.schema
 import education.schema
 import encouragement.schema
+import squad.schema
 
 
-class Query(custom_user.schema.Query, education.schema.Query, encouragement.schema.Query, graphene.ObjectType):
+class Query(custom_user.schema.Query, education.schema.Query, encouragement.schema.Query,
+            squad.schema.Query, graphene.ObjectType):
     pass
 
 

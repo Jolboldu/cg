@@ -19,7 +19,7 @@ class Query(graphene.ObjectType):
     medals = graphene.List(MedalType, user=graphene.Int())
     trees = graphene.List(TreeType, _from=graphene.Int(), _to=graphene.Int())
 
-    def resolve_medals(self, info, user=None, description=None, **kwargs):
+    def resolve_medals(self, info, user=None, **kwargs):
         if user:
             filter = (
                 Q(user__user__id__icontains=user)
