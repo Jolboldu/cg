@@ -1,4 +1,6 @@
 from django.db import models
+from custom_user.models import Student
+from squad.models import Teams, Participants
 # Create your models here.
 
 
@@ -49,6 +51,30 @@ class Assignments(models.Model):
     deadline = models.DateTimeField()
     description = models.TextField()
     comments = models.TextField()
+
+    def save(self, *args, **kwargs):
+        owner = self.user
+        assignment_set = Assignments.objects.filter(user=owner)
+        total_grades = 0.0
+        total_max = 0.0
+        for assignment in assignment_set:
+            total_grades += assignment.grade
+            total_max += assignment.max_grade
+
+        new_efficiency = total_grades/total_max*100
+        Student.objects.filter(user=owner).update(efficiency=new_efficiency)
+
+        # self_team = Participants.objects.filter(student=owner)
+        # participants_set = Participants.objects.filter(team=self_team)
+        # total_efficiency = 0.0
+        #
+        # for participant in participants_set:
+        #     total_efficiency += participant.efficiency
+        #
+        # new_efficiency=total_efficiency/participants_set.count()
+        #
+        # Teams.objects.filter(team=self_team).update(efficiency=new_efficiency)
+        super(Assignments, self).save(*args, **kwargs)
 
 
 class Attendance(models.Model):

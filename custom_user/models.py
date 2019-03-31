@@ -1,4 +1,4 @@
-from education.models import Courses
+#from education.models import Courses
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
@@ -21,7 +21,7 @@ class Student(models.Model):
     school = models.CharField(max_length=100)
     parent_first_name = models.CharField(max_length=100)
     parent_last_name = models.CharField(max_length=100)
-    efficiency = models.IntegerField(default=100)
+    efficiency = models.FloatField(default=100.0)
     is_valid = models.BooleanField(default=True)
 
     def __str__(self):

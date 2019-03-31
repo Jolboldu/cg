@@ -1,0 +1,12 @@
+{
+  "data": {
+    "refreshToken": {
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImpvbGJvbGR1IiwiZXhwIjoxNTUzODcyMTA5LCJvcmlnSWF0IjoxNTUzODcxNTI4fQ.y3xBBS2eEFdTZ8r8xRAi6FsbiDrDiBb_147LKKY_84Y",
+      "payload": {
+        "username": "jolboldu",
+        "exp": 1553872109,
+        "origIat": 1553871528
+      }
+    }
+  }
+}

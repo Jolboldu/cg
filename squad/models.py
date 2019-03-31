@@ -7,6 +7,7 @@ class Teams(models.Model):
     name = models.CharField(max_length=100, default='name')
     instructor = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     date = models.DateField()
+    efficiency = models.FloatField(default=100.0)
 
     def __str__(self):
         return self.name

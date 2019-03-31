@@ -44,7 +44,7 @@ class Query(graphene.ObjectType):
         return Courses.objects.all()
 
 # query for files
-    def resolve_files(self, info, user=None, is_material=bool, course=None, lesson=None, file=None, **kwargs):
+    def resolve_files(self, info, user=None, is_material=None, course=None, lesson=None, file=None, **kwargs):
         # пока что хз как исправить is_material
         # if not is_material:
         #     filter=(
@@ -54,7 +54,7 @@ class Query(graphene.ObjectType):
 
         # if is_material:
         #     filter = (
-        #         Q(is_material__icontains=not is_material)
+        #         Q(is_material__icontains=is_material)
         #     )
         #     return Files.objects.filter(filter)
 
@@ -80,7 +80,8 @@ class Query(graphene.ObjectType):
             )
             return Files.objects.filter(filter)
 
-        return Files.objects.all()
+
+        return Files.objects.filter(filter)
 
 # query for lessons
     def resolve_lessons(self, info, lesson=None, **kwargs):
