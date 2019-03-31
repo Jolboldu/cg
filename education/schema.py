@@ -2,6 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 from .models import Courses, Lessons, Files, Assignments, Attendance
 from django.db.models import Q
+from graphene_file_upload.scalars import Upload
 
 
 class CourseType(DjangoObjectType):
@@ -44,7 +45,7 @@ class Query(graphene.ObjectType):
 
 # query for files
     def resolve_files(self, info, user=None, is_material=bool, course=None, lesson=None, file=None, **kwargs):
-        #пока что хз как исправить is_material
+        # пока что хз как исправить is_material
         # if not is_material:
         #     filter=(
         #         Q(is_material__icontains=is_material)
@@ -120,3 +121,14 @@ class Query(graphene.ObjectType):
             return Attendance.objects.filter(filter)
         return Attendance.objects.all()
 
+
+class UploadMutation(graphene.Mutation):
+    class Arguments:
+        file = Upload(required=True)
+
+    success = graphene.Boolean()
+
+    def mutate(self, info, file, **kwargs):
+        # do something with your file
+
+        return UploadMutation(success=True)
