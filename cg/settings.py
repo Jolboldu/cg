@@ -25,7 +25,7 @@ SECRET_KEY = '24=1bg1_kmo&y=9s-7zaonysel3k-+3+go+0$d^+l-48@4la&_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['134.209.229.36','localhost']
 
 
 # Application definition
@@ -84,9 +84,12 @@ WSGI_APPLICATION = 'cg.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cg',
+        'USER': 'joma',
+        'PASSWORD': 'huipizda228322',
+        'HOST': 'localhost',
+        'PORT': '',    }
 }
 
 
@@ -127,6 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 
 #MEDIA_ROOT = '/home/jolboldu/Документы/work/cg/'
 MEDIA_URL = '/media/'

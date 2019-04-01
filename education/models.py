@@ -64,16 +64,16 @@ class Assignments(models.Model):
         new_efficiency = total_grades/total_max*100
         Student.objects.filter(user=owner).update(efficiency=new_efficiency)
 
-        # self_team = Participants.objects.filter(student=owner)
-        # participants_set = Participants.objects.filter(team=self_team)
-        # total_efficiency = 0.0
-        #
-        # for participant in participants_set:
-        #     total_efficiency += participant.efficiency
-        #
-        # new_efficiency=total_efficiency/participants_set.count()
-        #
-        # Teams.objects.filter(team=self_team).update(efficiency=new_efficiency)
+        my_participants = Participants.objects.filter(student=owner)
+        for my in my_participants:
+            participants_set = Participants.objects.filter(team=my.team)
+            total_efficiency = 0.0
+            for participant in participants_set:
+                total_efficiency += participant.student.efficiency
+
+            new_efficiency = total_efficiency/participants_set.count()
+      #      Teams.objects.get(id=my.team__id).update(efficiency=new_efficiency)
+
         super(Assignments, self).save(*args, **kwargs)
 
 
